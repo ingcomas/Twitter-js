@@ -3,7 +3,8 @@ const app = express();
 const nunjucks = require('nunjucks');
 const routes = require('./routes');
 
-app.use('/', routes);
+ app.use('/', routes);
+app.use(express.static('./public'));
 
 app.use(function(req,res,next){// logging Middlewere de url y método
     console.log('url: '+req.url,'\tMetodo: '+req.method);
@@ -12,7 +13,7 @@ app.use(function(req,res,next){// logging Middlewere de url y método
 
 app.set('view engine', 'html'); // hace que res.render funcione con archivos html
 app.engine('html', nunjucks.render); // cuando le den archivos html a res.render, va a usar nunjucks
-nunjucks.configure('views',{noCache:true}); // apunta a nunjucks al directorio correcto para los templates
+
 
 app.listen('3000');// Espera un request por puerto 3000
 
