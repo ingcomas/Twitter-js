@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const nunjucks = require('nunjucks');
 
 app.use(function(req,res,next){// logging Middlewere de url y método
     console.log('url: '+req.url,'\tMetodo: '+req.method);
