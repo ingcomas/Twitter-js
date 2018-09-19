@@ -5,12 +5,13 @@ function add (name, content) {
     data.push({ name: name, content: content });
 }
 function list () {
-        return _.cloneDeep(data);
+    return _.cloneDeep(data);
 }
 function find (properties) {
-        return _.cloneDeep(_.filter(data, properties));
+    return _.cloneDeep(_.filter(data, properties));
 }
-
+      
+module.exports = { add: add, list: list, find: find };
   //--------------------------- Tweets falsos------------------------------//
 
   const randArrayEl = function(arr) {
@@ -23,12 +24,11 @@ function find (properties) {
   };
   const getFakeTweet = function() {
     const awesome_adj = ['increible', 'emocionante', 'increible', 'gracioso', 'dulce', 'cool',  'sorprendente', 'impresionante'];
-    return "Plataforma 5 es " + randArrayEl(awesome_adj) + "! Los profesores simplemente son " + randArrayEl(awesome_adj) + ". #P5Love #codedreams";
+    return "Plataforma 5 es " + randArrayEl(awesome_adj) + "! Los profesores simplemente son " + randArrayEl(awesome_adj) + "s. #P5Love #codedreams";
   };
   for (let i = 0; i < 10; i++) {
     module.exports.add( getFakeName(), getFakeTweet() );
   }  
-  
-
-  module.exports = { add: add, list: list, find: find };
-console.log(data);
+  // var prueba=module.exports.find({'name':'Toni Tralice'});
+  // console.log(prueba);
+  // console.log(data);
